@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big School - Le Thanh 18DTHA2</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .navbar-inverse {
+            background-color: #17AF0D;
+            border-color: #fbf6f6;
+        }
+
+            .navbar-inverse .navbar-nav > li > a {
+                color: white;
+            }
+
+            .navbar-inverse .navbar-brand {
+                color: white;
+            }
+        /* course layout*/
+        .course {
+            list-style: none;
+        }
+
+            .course > li {
+                position: relative;
+                margin-bottom: 30px;
+            }
+
+                .course > li .date {
+                    text-align: center;
+                    background-color: #d41d50;
+                    color: white;
+                    width: 60px;
+                    border-radius: 8px;
+                }
+
+                .course > li .details {
+                    position: absolute;
+                    top: 0;
+                    left: 70px;
+                }
+
+                .course > li .lecture {
+                }
+
+                .course > li .category {
+                }
+
+                .course > li .action {
+                    display: none;
+                    left: 70px;
+                    position: absolute;
+                }
+
+                .course > li:hover .action {
+                    display: block;
+                }
+    </style>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("School Me Ver2", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Trang Chu", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Them Khoa Hoc", "Create", "Course")</li>
+                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - LeThanh18DTHA2</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
